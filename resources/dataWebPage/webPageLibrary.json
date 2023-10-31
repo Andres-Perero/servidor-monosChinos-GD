@@ -1,0 +1,9 @@
+{
+  "series": "series.json",
+  "pagination": "pagination.json",
+  "category": "category.json",
+  "genre": "genre.json",
+  "year": "year.json",
+  "letter": "letter.json",
+  "newlyAdded": "newlyAdded.json"
+}
