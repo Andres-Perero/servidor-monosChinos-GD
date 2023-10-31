@@ -1,5 +1,5 @@
 //DataModelerSeries.js
-import { scraperSeries } from "../../compoments/WebScraping/ScraperSeries";
+import { scraperSeries } from "../../compoments/WebScraping/scraperSeries";
 import { getDataGD } from "../../resourcesGD/readFileContentFromDrive";
 
 import { DataSaveGD } from "../DataSaving/DataSaveGD";
