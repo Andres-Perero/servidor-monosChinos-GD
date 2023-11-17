@@ -27,7 +27,9 @@ const scrapePage = async (pageUrl) => {
     const category = Array.from(
       allFiltersDiv.querySelectorAll('select[name="categoria"] option')
     ).map((option) => option.value);
-
+    // Agregar "Estreno" a la lista de categorías
+    category.push("Estreno");
+    
     const genre = Array.from(
       allFiltersDiv.querySelectorAll('select[name="genero"] option')
     ).map((option) => option.value);

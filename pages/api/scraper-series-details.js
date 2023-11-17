@@ -5,12 +5,10 @@ import { downloadChromeExecutableIfNeeded } from "../../resources/dataChrome/get
 import { getDataGD } from "../../resourcesGD/readFileContentFromDrive";
 
 const idFoldersGD = require("../../data-googleapis/dataIdFolders.json");
-const webDataLibrary = require("../../resources/dataWebPage/webPageLibrary.json");
-const webData = require("../../resources/dataWebPage/webPageInfoMapping.json");
 const filesResourcesGD = require("../../resources/dataWebPage/webPageLibrary.json");
 
 export default async function handler(req, res) {
-  if (req.method !== "GET") {
+  if (req.method !== "GET") {   
     return res.status(405).end(); // Método no permitido
   }
 
@@ -28,7 +26,7 @@ export default async function handler(req, res) {
         console.log("Titulo: ", serie.title);
         // Proceso
         await DataModelerSerieDetails(serie);
-        console.log("---------------------------------");
+        
       }
     }
     console.log("================================");

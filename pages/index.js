@@ -1,8 +1,15 @@
 import Head from "next/head";
-import Image from "next/image";
+import fs from "fs";
+import path from "path";
 import styles from "../styles/Home.module.css";
 
-export default function Home() {
+
+export default function Home({ apiRoutes }) {
+  const removeExtension = (fileName) => {
+    return fileName.replace(/\.[^/.]+$/, ""); // Eliminar la extensión del archivo
+    // Otra opción:
+    // return fileName.slice(0, -3); // Eliminar los últimos 3 caracteres (.js)
+  };
   return (
     <div className={styles.container}>
       <Head>
@@ -13,7 +20,32 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>Welcome to Server Data Web Scraping</h1>
+        <div>
+          <h2>API Routes:</h2>
+          <ul>
+            {apiRoutes.map((route, index) => (
+              <li key={index}>
+                <a href={removeExtension(route)}>{route}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </main>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const apiDirectory = path.join(process.cwd(), "pages/api");
+  const files = fs.readdirSync(apiDirectory);
+
+  const apiRoutes = files
+    .filter((file) => file.endsWith(".js"))
+    .map((file) => `/api/${file}`);
+
+  return {
+    props: {
+      apiRoutes,
+    },
+  };
 }
