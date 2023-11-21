@@ -1,10 +1,9 @@
-//scraper-series
+//scraper-series-currents
 import { DataModelerSeries } from "../../modules/DataModeling/DataModelerSeries";
 import { downloadChromeExecutableIfNeeded } from "../../resources/dataChrome/getChrome";
 import { getDataGD } from "../../resourcesGD/readFileContentFromDrive";
 
 const idFoldersGD = require("../../data-googleapis/dataIdFolders.json");
-const webDataLibrary = require("../../resources/dataWebPage/webPageLibrary.json");
 const webData = require("../../resources/dataWebPage/webPageInfoMapping.json");
 
 export default async function handler(req, res) {
@@ -22,7 +21,7 @@ export default async function handler(req, res) {
     if (maxNumberPageLibrary) {
       await DataModelerSeries(
         dataWebPageLibraryFromGD,
-        maxNumberPageLibrary.maxPage
+        maxNumberPageLibrary
       ); //
     }
 

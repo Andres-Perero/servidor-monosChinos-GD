@@ -20,7 +20,7 @@ const generateIDSeriesSaveGD = async (dataSeries, seriesGD) => {
       idSeriesDataSave = datasetSeries;
     }
 
-    if (idSeriesDataSave) {
+    if (idSeriesDataSave.length > 0) {
       // Save the updated idSeriesData back to the IdSeries.json file
       await DataSaveGD(
         idFoldersGD.dataSeries,
@@ -45,6 +45,7 @@ const DataModelerSeries = async (dataWebPageLibraryFromGD, maxPageLibrary) => {
       webSiteLibrary,
       maxPageLibrary
     );
+
     if (dataScraperSeries) {
       const seriesGD = await getDataGD(
         idFoldersGD.dataSeries,
@@ -59,7 +60,7 @@ const DataModelerSeries = async (dataWebPageLibraryFromGD, maxPageLibrary) => {
             )
         );
 
-        if (newSeries) {
+        if (newSeries.length > 0) {
           console.log("Nuevas series: ", newSeries.length);
           await generateIDSeriesSaveGD(newSeries, seriesGD);
           console.log(

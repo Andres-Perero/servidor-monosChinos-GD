@@ -34,6 +34,7 @@ const scrapeAndSaveSerieDetails = async (serie) => {
 
     const serieDetail = await scraperSerieDetails(serie.urlSerie);
     if (serieDetail) {
+      console.log(serieDetail.title)
       //abro la base de datos de la series
       const seriesGD = await getDataGD(
         idFoldersGD.dataSeries,

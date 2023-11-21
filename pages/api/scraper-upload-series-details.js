@@ -27,7 +27,7 @@ export default async function handler(req, res) {
     for (const serie of seriesGD) {
       if (serie.status) {
         if (
-          serie.year == yearCurrent.getFullYear() &&
+          //serie.year == yearCurrent.getFullYear() &&
           serie.status == categories[categories.length - 1] // aqui selecciono "Estreno" que siempre sera el ultimo elemento de la array
         ) {
           // "estreno  ver como se extrae de manera externa"
